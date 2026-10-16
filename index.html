@@ -73,6 +73,123 @@
     .skill-fallback { color: #c9c6e6; font-weight: 600; }
     .skill h3 { color: #8b7cff; margin-bottom: 8px; }
     .skill p { font-size: 0.95rem; margin-bottom: 0; }
+
+    /* Бөлшектер фоны */
+    #particles {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    /* Хакатон командалық орталығы */
+    .hub {
+      max-width: 720px;
+      width: 100%;
+      padding: 36px 28px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 20px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(6px);
+    }
+    .hub > h2 { font-size: 1.6rem; text-align: center; margin-bottom: 28px; }
+    .hub h3 { font-size: 1.05rem; margin-bottom: 4px; }
+    .hub-block + .hub-block {
+      margin-top: 28px;
+      padding-top: 28px;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+    }
+    .hub-note { font-size: 0.9rem; margin-bottom: 14px; }
+
+    .countdown {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+    .countdown[hidden] { display: none; }
+    .cd-unit {
+      padding: 16px 6px;
+      text-align: center;
+      background: rgba(139, 124, 255, 0.14);
+      border: 1px solid rgba(139, 124, 255, 0.35);
+      border-radius: 14px;
+    }
+    .cd-num {
+      display: block;
+      font-size: clamp(1.6rem, 6vw, 2.6rem);
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+      line-height: 1.1;
+    }
+    .cd-label { display: block; margin-top: 4px; font-size: 0.8rem; color: #c9c6e6; }
+    .countdown.small .cd-unit { padding: 10px 4px; background: rgba(255, 255, 255, 0.05); border-color: rgba(255, 255, 255, 0.15); }
+    .countdown.small .cd-num { font-size: clamp(1.2rem, 4.5vw, 1.6rem); }
+    .cd-done {
+      padding: 18px;
+      text-align: center;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #ffffff;
+      background: linear-gradient(135deg, rgba(139, 124, 255, 0.45), rgba(139, 124, 255, 0.15));
+      border: 1px solid #8b7cff;
+      border-radius: 14px;
+    }
+
+    .progress-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+    .progress-pct { font-weight: 700; color: #8b7cff; font-variant-numeric: tabular-nums; }
+    .progress {
+      height: 10px;
+      margin-bottom: 18px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      width: 0;
+      background: linear-gradient(90deg, #8b7cff, #c3b9ff);
+      border-radius: 999px;
+      transition: width 0.4s ease;
+    }
+    .checklist { list-style: none; display: grid; gap: 10px; }
+    .check {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 16px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 14px;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .check:hover { border-color: #8b7cff; }
+    .check input {
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      accent-color: #8b7cff;
+      cursor: pointer;
+    }
+    .check-title { display: block; font-weight: 600; }
+    .check-desc { display: block; font-size: 0.85rem; color: #c9c6e6; }
+    .check:has(input:checked) { background: rgba(139, 124, 255, 0.14); border-color: rgba(139, 124, 255, 0.45); }
+    .check:has(input:checked) .check-title { text-decoration: line-through; text-decoration-color: rgba(255, 255, 255, 0.5); }
+
+    @media (max-width: 480px) {
+      .hub { padding: 28px 16px; }
+      .countdown { gap: 6px; }
+      .cd-label { font-size: 0.7rem; }
+    }
   </style>
 </head>
 <body>
@@ -102,5 +219,235 @@
       </div>
     </div>
   </section>
+
+  <section class="hub" aria-labelledby="hub-title">
+    <h2 id="hub-title">Хакатон <span class="accent">командалық орталығы</span></h2>
+
+    <div class="hub-block">
+      <h3>Decentrathon 6.0 басталуына дейін</h3>
+      <p class="hub-note">Тапсырмалар ашылады: 30 қазан 2026, 11:00 (UTC+5)</p>
+      <div class="timer" data-target="2026-10-30T11:00:00+05:00" data-done="Хакатон басталды! 🚀"></div>
+    </div>
+
+    <div class="hub-block">
+      <h3>Жобаны тапсыру мерзіміне дейін</h3>
+      <p class="hub-note">Соңғы мерзім: 31 қазан 2026, 23:59 (UTC+5)</p>
+      <div class="timer small" data-target="2026-10-31T23:59:00+05:00" data-done="Тапсыру мерзімі аяқталды"></div>
+    </div>
+
+    <div class="hub-block">
+      <div class="progress-head">
+        <h3>Дайындық чеклисті</h3>
+        <span class="progress-pct" id="progress-pct">0%</span>
+      </div>
+      <div class="progress" role="progressbar" aria-label="Дайындық прогресі" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progress">
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+      <ul class="checklist" id="checklist">
+        <li><label class="check"><input type="checkbox" data-id="github" data-default="true"><span><span class="check-title">GitHub</span><span class="check-desc">Репозиторий дайын, код push етілген</span></span></label></li>
+        <li><label class="check"><input type="checkbox" data-id="deploy" data-default="true"><span><span class="check-title">Deploy</span><span class="check-desc">Сайт интернетте жарияланған</span></span></label></li>
+        <li><label class="check"><input type="checkbox" data-id="claude-code" data-default="true"><span><span class="check-title">Claude Code</span><span class="check-desc">Орнатылған және жұмыс істейді</span></span></label></li>
+        <li><label class="check"><input type="checkbox" data-id="api" data-default="false"><span><span class="check-title">API</span><span class="check-desc">API кілттері мен сұраныстар тексерілген</span></span></label></li>
+        <li><label class="check"><input type="checkbox" data-id="rehearsal" data-default="false"><span><span class="check-title">Репетиция</span><span class="check-desc">Жоба таныстыруы уақытпен жаттықтырылған</span></span></label></li>
+      </ul>
+    </div>
+  </section>
+
+  <canvas id="particles" aria-hidden="true"></canvas>
+
+  <script>
+    // ---------- Санауыштар ----------
+    (function () {
+      var LABELS = ['күн', 'сағат', 'минут', 'секунд'];
+      var timers = Array.prototype.map.call(document.querySelectorAll('.timer'), function (el) {
+        var grid = document.createElement('div');
+        grid.className = 'countdown' + (el.classList.contains('small') ? ' small' : '');
+        var nums = LABELS.map(function (label) {
+          var unit = document.createElement('div');
+          unit.className = 'cd-unit';
+          var num = document.createElement('span');
+          num.className = 'cd-num';
+          num.textContent = '--';
+          var lab = document.createElement('span');
+          lab.className = 'cd-label';
+          lab.textContent = label;
+          unit.append(num, lab);
+          grid.append(unit);
+          return num;
+        });
+        var done = document.createElement('div');
+        done.className = 'cd-done';
+        done.setAttribute('role', 'status');
+        done.textContent = el.dataset.done;
+        done.hidden = true;
+        el.append(grid, done);
+        return { target: new Date(el.dataset.target).getTime(), grid: grid, nums: nums, done: done };
+      });
+
+      function pad(n) { return n < 10 ? '0' + n : String(n); }
+
+      function tick() {
+        var now = Date.now();
+        timers.forEach(function (t) {
+          var diff = Math.floor((t.target - now) / 1000);
+          if (diff <= 0) {
+            t.grid.hidden = true;
+            t.done.hidden = false;
+            return;
+          }
+          var parts = [
+            Math.floor(diff / 86400),
+            Math.floor(diff % 86400 / 3600),
+            Math.floor(diff % 3600 / 60),
+            diff % 60
+          ];
+          parts.forEach(function (v, i) {
+            var text = i === 0 ? String(v) : pad(v);
+            if (t.nums[i].textContent !== text) t.nums[i].textContent = text;
+          });
+        });
+      }
+      tick();
+      setInterval(tick, 1000);
+    })();
+
+    // ---------- Чеклист ----------
+    (function () {
+      var KEY = 'decentrathon-checklist';
+      var boxes = document.querySelectorAll('#checklist input');
+      var fill = document.getElementById('progress-fill');
+      var pct = document.getElementById('progress-pct');
+      var bar = document.getElementById('progress');
+      var saved = null;
+      try { saved = JSON.parse(localStorage.getItem(KEY)); } catch (e) {}
+
+      boxes.forEach(function (box) {
+        var id = box.dataset.id;
+        box.checked = saved && typeof saved[id] === 'boolean' ? saved[id] : box.dataset.default === 'true';
+        box.addEventListener('change', update);
+      });
+
+      function update() {
+        var state = {};
+        var count = 0;
+        boxes.forEach(function (box) {
+          state[box.dataset.id] = box.checked;
+          if (box.checked) count++;
+        });
+        var p = Math.round(count / boxes.length * 100);
+        fill.style.width = p + '%';
+        pct.textContent = p + '%';
+        bar.setAttribute('aria-valuenow', p);
+        try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {}
+      }
+      update();
+    })();
+
+    // ---------- Бөлшектер фоны ----------
+    (function () {
+      var canvas = document.getElementById('particles');
+      var ctx = canvas.getContext('2d');
+      if (!ctx) return;
+      var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var LINK = 120;          // бөлшектерді қосатын сызық қашықтығы
+      var MOUSE_R = 140;       // тышқанның әсер ету радиусы
+      var w, h, particles = [];
+      var mouse = { x: -9999, y: -9999 };
+
+      function resize() {
+        var dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+        w = window.innerWidth;
+        h = window.innerHeight;
+        canvas.width = Math.round(w * dpr);
+        canvas.height = Math.round(h * dpr);
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        // Экран ауданына қарай саны, бірақ 70-тен аспайды
+        var count = Math.min(70, Math.round(w * h / 16000));
+        while (particles.length < count) {
+          particles.push({
+            x: Math.random() * w,
+            y: Math.random() * h,
+            vx: (Math.random() - 0.5) * 0.4,
+            vy: (Math.random() - 0.5) * 0.4,
+            r: Math.random() * 1.6 + 0.8
+          });
+        }
+        particles.length = count;
+        if (reduceMotion) draw();
+      }
+
+      function step() {
+        for (var i = 0; i < particles.length; i++) {
+          var p = particles[i];
+          var dx = p.x - mouse.x, dy = p.y - mouse.y;
+          var d2 = dx * dx + dy * dy;
+          if (d2 < MOUSE_R * MOUSE_R && d2 > 0.01) {
+            var d = Math.sqrt(d2);
+            var force = (1 - d / MOUSE_R) * 0.6;
+            p.vx += dx / d * force;
+            p.vy += dy / d * force;
+          }
+          p.vx *= 0.96;
+          p.vy *= 0.96;
+          // Ең баяу жылдамдықты сақтау, бөлшектер тоқтап қалмасын
+          if (Math.abs(p.vx) < 0.05) p.vx += (Math.random() - 0.5) * 0.05;
+          if (Math.abs(p.vy) < 0.05) p.vy += (Math.random() - 0.5) * 0.05;
+          p.x += p.vx;
+          p.y += p.vy;
+          if (p.x < 0) p.x += w; else if (p.x > w) p.x -= w;
+          if (p.y < 0) p.y += h; else if (p.y > h) p.y -= h;
+        }
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, w, h);
+        ctx.lineWidth = 1;
+        for (var i = 0; i < particles.length; i++) {
+          var a = particles[i];
+          for (var j = i + 1; j < particles.length; j++) {
+            var b = particles[j];
+            var dx = a.x - b.x, dy = a.y - b.y;
+            var d2 = dx * dx + dy * dy;
+            if (d2 < LINK * LINK) {
+              ctx.strokeStyle = 'rgba(139, 124, 255, ' + (0.35 * (1 - Math.sqrt(d2) / LINK)).toFixed(3) + ')';
+              ctx.beginPath();
+              ctx.moveTo(a.x, a.y);
+              ctx.lineTo(b.x, b.y);
+              ctx.stroke();
+            }
+          }
+        }
+        ctx.fillStyle = 'rgba(201, 198, 230, 0.75)';
+        for (var k = 0; k < particles.length; k++) {
+          var p = particles[k];
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      }
+
+      function loop() {
+        step();
+        draw();
+        requestAnimationFrame(loop); // жасырын қойындыда браузер өзі тоқтатады
+      }
+
+      var resizeTimer;
+      window.addEventListener('resize', function () {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(resize, 150);
+      });
+      resize();
+
+      if (reduceMotion) return; // қозғалысты азайту баптауы қосулы болса, тек статикалық сурет
+      window.addEventListener('pointermove', function (e) { mouse.x = e.clientX; mouse.y = e.clientY; }, { passive: true });
+      document.addEventListener('pointerleave', function () { mouse.x = mouse.y = -9999; });
+      // Телефонда саусақ көтерілгенде әсер жоғалсын
+      window.addEventListener('pointerup', function (e) { if (e.pointerType !== 'mouse') mouse.x = mouse.y = -9999; });
+      window.addEventListener('pointercancel', function () { mouse.x = mouse.y = -9999; });
+      window.addEventListener('blur', function () { mouse.x = mouse.y = -9999; });
+      loop();
+    })();
+  </script>
 </body>
 </html>
