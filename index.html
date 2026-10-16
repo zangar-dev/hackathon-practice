@@ -74,6 +74,28 @@
     .skill h3 { color: #8b7cff; margin-bottom: 8px; }
     .skill p { font-size: 0.95rem; margin-bottom: 0; }
 
+    /* Ойын түймесі */
+    .play-btn {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      padding: 20px 52px;
+      color: #ffffff;
+      text-decoration: none;
+      background: linear-gradient(135deg, #8b7cff, #b86bff);
+      border-radius: 999px;
+      box-shadow: 0 0 30px rgba(139, 124, 255, 0.55), 0 12px 30px rgba(0, 0, 0, 0.4);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .play-btn:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 0 48px rgba(139, 124, 255, 0.85), 0 16px 36px rgba(0, 0, 0, 0.45);
+    }
+    .play-btn:focus-visible { outline: 3px solid #ffffff; outline-offset: 4px; }
+    .play-btn-label { font-size: 1.5rem; font-weight: 800; }
+    .play-btn-sub { font-size: 0.85rem; color: rgba(255, 255, 255, 0.8); }
+
     /* Бөлшектер фоны */
     #particles {
       position: fixed;
@@ -219,6 +241,11 @@
       </div>
     </div>
   </section>
+
+  <a class="play-btn" href="game.html">
+    <span class="play-btn-label">🎮 Ойнап көр</span>
+    <span class="play-btn-sub">Bug Hunter: Deadline Rush</span>
+  </a>
 
   <section class="hub" aria-labelledby="hub-title">
     <h2 id="hub-title">Хакатон <span class="accent">командалық орталығы</span></h2>
