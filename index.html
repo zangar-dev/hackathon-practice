@@ -10,6 +10,8 @@
       min-height: 100vh;
       display: flex;
       align-items: center;
+      flex-direction: column;
+      gap: 32px;
       justify-content: center;
       font-family: "Segoe UI", Arial, sans-serif;
       background: linear-gradient(135deg, #0a0815, #2a1a5e);
@@ -39,6 +41,25 @@
       font-weight: 600;
     }
     .btn:hover { background: #a094ff; }
+    .skills { max-width: 720px; width: 100%; text-align: center; }
+    .skills h2 { font-size: 1.6rem; margin-bottom: 20px; }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+    }
+    .skill {
+      padding: 28px 20px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 20px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .skill:hover { transform: translateY(-4px); border-color: #8b7cff; }
+    .skill-icon { font-size: 2rem; margin-bottom: 10px; }
+    .skill h3 { color: #8b7cff; margin-bottom: 8px; }
+    .skill p { font-size: 0.95rem; margin-bottom: 0; }
   </style>
 </head>
 <body>
@@ -47,5 +68,26 @@
     <p>Менің атым Zangar. Мен Decentrathon 6.0 хакатонына дайындалып жатырмын.</p>
     <a class="btn" href="https://decentrathon.ai/" target="_blank">Хакатон сайты</a>
   </div>
+
+  <section class="skills">
+    <h2>Менің <span class="accent">дағдыларым</span></h2>
+    <div class="skills-grid">
+      <div class="skill">
+        <div class="skill-icon">🐙</div>
+        <h3>GitHub</h3>
+        <p>Git арқылы кодты сақтау, commit жасау және жобаны жариялау.</p>
+      </div>
+      <div class="skill">
+        <div class="skill-icon">🤖</div>
+        <h3>Claude Code</h3>
+        <p>AI көмекшімен бірге сайттар мен жобаларды жылдам жасау.</p>
+      </div>
+      <div class="skill">
+        <div class="skill-icon">🚀</div>
+        <h3>Vercel</h3>
+        <p>Сайтты интернетке бірнеше секундта жариялау (deploy).</p>
+      </div>
+    </div>
+  </section>
 </body>
 </html>
